@@ -1,0 +1,57 @@
+{% extends 'base.html'%}
+{% block title%} Orders {% endblock%}
+
+{% load static %}
+{% block headers%}
+<link rel="stylesheet" href="{% static 'orders/css/main.css'%}">
+{% endblock%}
+
+{% block content%}
+<div class="orders-page">
+    <div class="container mt-5">
+        <!-- User Information Section -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3>Your Details</h3>
+            </div>
+            <div class="card-body">
+                <p class="mb-1"><strong>First Name:</strong> {{ user.first_name }}</p>
+                <p class="mb-1"><strong>Last Name:</strong> {{ user.last_name }}</p>
+                <p class="mb-1"><strong>Username:</strong> {{ user.username }}</p>
+                <p class="mb-1"><strong>Phone:</strong> {{ user.phone }}</p>
+            </div>
+        </div>
+
+        <!-- Game Information Section -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Game Details</h3>
+            </div>
+            <div class="card-body">
+                <p class="mb-1"><strong>Name:</strong> {{ game.name }}</p>
+                <p class="mb-1"><strong>Company:</strong> {{ game.company }}</p>
+                <p class="mb-1"><strong>Rate:</strong> {{ game.rate }}<i class="fa fa-star text-warning ms-1"></i></p>
+                <p class="mb-1"><strong>Price:</strong>
+                    {% if not game.price %}
+                    <span class="badge bg-success">Free</span>
+                    {% else%}
+                    ${{ game.price }}
+                    {% endif %}
+                </p>
+                <p class="mb-1"><strong>Downloads:</strong> +{{ game.downloads }}M</p>
+                <p class="mb-3"><strong>Description:</strong> {{ game.description }}</p>
+                <img src="{{ game.image.url }}" class="img-fluid img-thumbnail" alt="Game Image"
+                    style="max-width: 300px;">
+            </div>
+        </div>
+
+        <!-- Request Button Section -->
+        <form action="{% url 'request_order' user.id game.id %}" method="POST" class="my-4 text-center">
+            {% csrf_token %}
+            <input type="hidden" name="user_id" value="{{ user.id }}">
+            <input type="hidden" name="game_id" value="{{ game.id }}">
+            <button type="submit" class="btn btn-primary">Request This Game</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

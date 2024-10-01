@@ -1,0 +1,26 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+nav .website-logo {
+  width: 2rem;
+  height: 2rem;
+}
+nav .dropdown-menu[data-bs-popper] {
+  right: 0px;
+  left: unset;
+}
+nav .logout-btn {
+  border: none;
+  padding: 0rem;
+  background: transparent;
+}
+
+footer {
+  margin-top: auto;
+}
+footer .website-logo {
+  width: 5rem;
+  height: 5rem;
+}

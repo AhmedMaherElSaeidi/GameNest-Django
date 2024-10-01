@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{% block title%} Orders {% endblock%}
+
+{% load static %}
+{% block headers%}
+<link rel="stylesheet" href="{% static 'orders/css/main.css'%}">
+{% endblock%}
+
+{% block content%}
+<div class="admin-order-page">
+    <div class="container mt-5">
+        <h2 class="mb-4">Order List</h2>
+        <div class="row">
+            {% for order in orders %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ order.games.name }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Ordered by: {{ order.users.username }}</h6>
+                        <p class="card-text mb-1">Status: {{ order.status }}</p>
+                        <a href="{% url 'resolve_orders' %}" class="card-link">View Game Details</a>
+                        <div class="order-form">
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                {{form}}
+                                <input type="hidden" name="id" value="{{ order.id }}">
+                                <button type="submit" class="btn btn-success">Proceed</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>No orders available.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

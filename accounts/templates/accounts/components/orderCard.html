@@ -1,0 +1,14 @@
+<div class="order-card">
+    <img src="{{ order.games.image.url }}" class="card-img-top" alt="{{ order.games.name }}">
+    <div class="card-body">
+        <h5 class="card-title mb-2">{{ order.games.name }}</h5>
+        <p class="card-text mb-1">{{ order.games.company }}</p>
+        <p class="card-text mb-1"><i class="fa fa-star text-warning"></i> {{ order.games.rate }}</p>
+        <p class="card-text mb-1"><span class="badge bg-secondary">{{ order.status }}</span></p>
+        {% if order.status == 'Delivered' or not order.games.price %}
+        <p class="card-text mb-1">
+            <a href="{{ order.games.url }}" class="btn btn-primary p-1 w-100">Play</a>
+        </p>
+        {% endif %}
+    </div>
+</div>

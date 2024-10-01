@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% block title%} Categories {% endblock%}
+
+{% load static %}
+{% block headers%}
+<link rel="stylesheet" href="{% static 'categories/css/main.css'%}">
+{% endblock%}
+
+{% block content%}
+<div class="categories-page">
+    <div class="d-flex justify-content-around align-items-center">
+        <h1>Categories Page</h1>
+        {% if user.id and user.is_superuser %}
+        <a href="{% url 'add_category' %}" class="p-3 btn btn-outline-secondary rounded-pill">Add New Category</a>
+        {% endif %}
+    </div>
+    <div class="categories-cards">
+        {% for category in categories.all %}
+        {% include 'categories/components/categoryCard.html' with category=category %}
+        {% endfor %}
+    </div>
+    {% if delete == "success" %}
+        <div class="alert alert-success alert-dismissible fade show position-fixed w-50 text-center" style="top: 85px; right: 340px" role="alert">
+        Category Deleted successfully!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

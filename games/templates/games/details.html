@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+{% block title%} {{ game.name }} {% endblock%}
+
+{% load static %}
+{% block headers%}
+<link rel="stylesheet" href="{% static 'games/css/main.css'%}">
+{% endblock%}
+
+{% block content%}
+<div class="game-details">
+    <div class="row">
+        <!-- Game Image -->
+        <div class="col-md-6">
+            <img src="{{ game.image.url }}" class="img-fluid rounded" alt="{{ game.name }}">
+        </div>
+
+        <!-- Game Details -->
+        <div class="col-md-6">
+            <h1>{{ game.name }}</h1>
+            <p><strong>Company:</strong> {{ game.company }}</p>
+            <p><strong>Rating:</strong>
+                <span class="badge bg-warning text-dark">
+                    <i class="fa fa-star"></i> {{ game.rate }}/5
+                </span>
+            </p>
+            <p><strong>Price:</strong> ${{ game.price }}
+                {% if not game.price %}<span class="badge bg-success ms-1">free</span>{% endif %}
+            </p>
+            <p><strong>Downloads:</strong> +{{ game.downloads }}M</p>
+            <p><strong>Description:</strong> {{ game.description }}</p>
+
+            <!-- Categories -->
+            <div class="mb-3">
+                <h5>Categories:</h5>
+                {% for category in game.categories.all %}
+                <span class="badge bg-success">{{ category.name }}</span>
+                {% empty %}
+                <p>No categories available for this game.</p>
+                {% endfor %}
+            </div>
+
+            <!-- Play or Buy Button -->
+            <div class="my-3">
+                {% if user.id and not user.is_superuser and not game.price %}
+                <a href="{{ game.url }}" class="btn btn-info" target="_blank">Play Now</a>
+                {% endif %}
+                {% if user.id and not user.is_superuser and not has_ordered_game %}
+                <a href="{% url 'request_order' user.id game.id %}" class="btn btn-info">Order Now</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

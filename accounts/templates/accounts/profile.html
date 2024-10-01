@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %} Login {% endblock %}
+
+
+{% load static %}
+{% block headers %}
+<link rel="stylesheet" href="{% static 'accounts/css/main.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-page">
+    <div class="profile-container mb-5">
+        {% if user.image %}
+        <img src="{{user.image.url}}" alt="Profile Picture">
+        {% else %}
+        <img src="{% static 'defaults/default.png' %}" alt="Profile Picture">
+        {% endif %}
+
+        <h1>@{{user.username}}</h1>
+        <h3 class="card-title mb-3">{{ user.first_name }} {{ user.last_name }}</h3>
+        <p class="mb-1 fw-bold text-primary">Contacts</p>
+        <p class="mb-0">{{ user.phone }}</p>
+        <p class="mb-3">{{ user.email }}</p>
+        <p class="text-primary"><span class="fw-bold">Joined,</span> {{ user.join_date }}</p>
+
+    </div>
+
+    {% if user.id and not user.is_superuser %}
+    <div>
+        <h3 class="color-native text-center mb-3">Orders</h3>
+        <div class="row requested_orders">
+            {% for order in orders.all %}
+            {% include 'accounts/components/orderCard.html' with order=order %}
+            {% empty %}
+            <div class="alert alert-secondary" role="alert">
+                Your cart is empty.
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif%}
+</div>
+{% endblock %}

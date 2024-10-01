@@ -1,0 +1,14 @@
+.admin-order-page .card .order-form {
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid black;
+}
+.admin-order-page .card .order-form form > div {
+  margin-bottom: 0.75rem;
+}
+.admin-order-page .card .order-form form select {
+  padding-inline: 1rem;
+}
+.admin-order-page .card .order-form .btn {
+  padding: 0.2rem;
+}

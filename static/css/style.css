@@ -1,0 +1,10 @@
+.text-nounderline {
+  text-decoration: none !important;
+}
+
+.bg-native {
+  background-color: #080e3f !important;
+}
+.color-native {
+  color: #080e3f !important;
+}

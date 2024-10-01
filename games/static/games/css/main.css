@@ -1,0 +1,128 @@
+/* STORE PAGE */
+.store-page {
+  margin-block: 0.5rem;
+  padding-block: 15px;
+  padding-inline: 20px;
+  background-color: #4c3442;
+  border-radius: 0.5rem;
+}
+.store-page .game-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.store-page .game-cards > .game-card {
+  width: 20rem;
+  margin: 0.5rem;
+}
+.store-page .game-cards > .game-card:hover {
+  transform: translateY(-8px);
+  transition: 250ms;
+}
+.store-page .game-cards > .game-card img {
+  display: block;
+  width: 18rem;
+  height: 20rem;
+}
+.store-page .game-cards > .game-card img:hover,
+.store-page .game-cards > .game-card .game-categories a:hover {
+  cursor: pointer;
+}
+.store-page .item {
+  padding: 15px;
+  border-radius: 0.5rem;
+}
+.store-page .item h4 {
+  font-size: 15px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  display: inline-block;
+}
+.store-page .item span {
+  color: #b6b6b6;
+  display: block;
+  margin-top: 7px;
+  font-weight: 400;
+}
+.store-page .item ul {
+  list-style: none;
+  float: right;
+  margin-top: 20px;
+}
+.store-page .item ul li {
+  text-align: right;
+  color: #fff;
+  font-size: 14px;
+}
+.store-page .main-button {
+  text-align: center;
+  margin-bottom: -53px;
+}
+
+/* DETAILS PAGE */
+@media screen and (max-width: 720px) {
+  .game-details > .row {
+    display: flex;
+    flex-direction: column;
+  }
+  .game-details > .row div:first-child {
+    margin-bottom: 1rem;
+  }
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form > div {
+  width: 50%;
+}
+
+form > div > label {
+  display: block;
+  margin-block: 8px;
+  font-weight: bold;
+}
+
+form > div > * {
+  width: 100%;
+  border-radius: 5px;
+  padding: 4px;
+}
+
+form > div > *:not(label) {
+  border: 1px solid gray;
+}
+
+form .helptext {
+  display: none;
+}
+
+form .errorlist {
+  background-color: rgba(255, 0, 0, 0.18);
+  list-style: none;
+}
+
+.game-edit {
+  display: flex;
+  justify-content: space-around;
+  gap: 2px;
+  width: 100%;
+}
+
+.game-edit a {
+  text-decoration: none;
+  background-color: black;
+  border-radius: 3px;
+  width: 45%;
+  text-align: center;
+}
+
+.game-edit a:hover {
+  background-color: rgb(201, 40, 40);
+}

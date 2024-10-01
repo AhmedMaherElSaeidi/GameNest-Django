@@ -1,0 +1,82 @@
+/* MAIN-BANNER */
+.home-page .main-banner {
+  background-image: url(../image/banner-bg.jpg);
+  background-position: center center;
+  background-size: cover;
+  min-height: 380px;
+  border-radius: 0.5rem;
+  padding: 80px 60px;
+}
+.home-page .main-banner h6 {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+.home-page .main-banner h4 {
+  font-size: 45px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+/* MOST POPULAR */
+.home-page .most-popular {
+  margin-block: 0.5rem;
+  padding-block: 15px;
+  padding-inline: 20px;
+  background-color: #4c3442;
+  border-radius: 0.5rem;
+}
+.home-page .most-popular .game-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.home-page .most-popular .game-cards > .game-card {
+  width: 20rem;
+  margin: 0.5rem;
+}
+.home-page .most-popular .game-cards > .game-card:hover {
+  transform: translateY(-8px);
+  transition: 250ms;
+}
+.home-page .most-popular .game-cards > .game-card img {
+  display: block;
+  width: 18rem;
+  height: 20rem;
+}
+.home-page .most-popular .game-cards > .game-card img:hover,
+.home-page .most-popular .game-cards > .game-card .game-categories a:hover {
+  cursor: pointer;
+}
+.home-page .most-popular .item {
+  padding: 15px;
+  border-radius: 0.5rem;
+}
+.home-page .most-popular .item h4 {
+  font-size: 15px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  display: inline-block;
+}
+.home-page .most-popular .item span {
+  color: #b6b6b6;
+  display: block;
+  margin-top: 7px;
+  font-weight: 400;
+}
+.home-page .most-popular .item ul {
+  list-style: none;
+  float: right;
+  margin-top: 20px;
+}
+.home-page .most-popular .item ul li {
+  text-align: right;
+  color: #fff;
+  font-size: 14px;
+}
+.home-page .most-popular .main-button {
+  text-align: center;
+  margin-bottom: -53px;
+}

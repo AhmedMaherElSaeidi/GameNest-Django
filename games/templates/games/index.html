@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+{% block title%} Store {% endblock%}
+
+{% load static %}
+{% block headers%}
+<link rel="stylesheet" href="{% static 'games/css/main.css'%}">
+{% endblock%}
+
+{% block content%}
+<div class="store-page">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="heading-section text-white fw-bold" style="display: flex; justify-content: space-between;">
+                <h4>You're viewing <em>{% if genre %}{{genre}}{% else %}All{% endif %}</em> category.</h4>
+                {% if genre %}
+                <a href="{% url 'store_page' %}" class="btn btn-outline-danger small">
+                    <i class="fa-solid fa-filter-circle-xmark"></i>
+                </a>
+                {% endif %}
+                {% if user.id and user.is_superuser %}
+                <a href="{% url 'add_game' %}" class="p-3 btn btn-outline-secondary rounded-pill">Add New Game</a>
+                {% endif %}
+            </div>
+            <div class="game-cards my-3 pt-3">
+                {% for game in games %}
+                {% include 'index/components/gameCard.html' with game=game %}
+                {% endfor %}
+            </div>
+            {% if delete == "success" %}
+            <div class="alert alert-success alert-dismissible fade show position-fixed w-50 text-center" style="top: 85px; right: 340px" role="alert">
+            Category Deleted successfully!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

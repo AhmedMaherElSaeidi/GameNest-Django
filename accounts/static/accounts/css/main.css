@@ -1,0 +1,77 @@
+.login-page form,
+.signup-page form {
+  margin: auto;
+  padding: 1rem;
+  color: white;
+  min-width: 10rem;
+  width: fit-content;
+  border-radius: 0.25rem;
+}
+.login-page form .errorlist,
+.signup-page form .errorlist {
+  color: red;
+  padding: 0px;
+  list-style: none;
+}
+.login-page form > div,
+.signup-page form > div {
+  margin-bottom: 0.5rem;
+}
+.login-page form > div label,
+.signup-page form > div label {
+  display: block;
+}
+.login-page form > div input,
+.signup-page form > div input {
+  width: 100%;
+  border-radius: 0.25rem;
+}
+.login-page form > button.btn,
+.signup-page form > button.btn {
+  height: 2rem;
+  padding: 0rem;
+}
+.signup-page form .helptext {
+  display: none;
+}
+
+.profile-page .profile-container {
+  padding: 20px;
+  max-width: 900px;
+  margin: 50px auto;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #d0c6cc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.profile-page .profile-container img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+.profile-page .profile-container h1 {
+  color: #333;
+  font-size: 36px;
+  margin-top: 20px;
+}
+
+.profile-page .requested_orders {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-page .requested_orders > .order-card {
+  margin: 0.5rem;
+  display: flex;
+  padding: 0.5rem;
+  width: fit-content;
+  border-radius: 0.25rem;
+  border: 1px solid #080e3f;
+}
+.profile-page .requested_orders > .order-card img {
+  width: 10rem;
+  height: 10rem;
+  margin-right: 1rem;
+}

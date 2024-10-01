@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} Register {% endblock %}
+
+
+{% load static %}
+{% block headers %}
+<link rel="stylesheet" href="{% static 'accounts/css/main.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="signup-page my-4">
+    <h1 class="text-center color-native fw-bold">Register Page</h1>
+    <form method="POST" class="form-container bg-native my-3" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <button class="btn btn-secondary w-100 mt-3" type="submit">Register</button>
+    </form>
+</div>
+{% endblock %}

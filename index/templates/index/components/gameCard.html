@@ -1,0 +1,22 @@
+<div class="game-card">
+    <div class="item bg-native">
+        {% load static %}
+        <a href="{% url 'details_page' game.id %}"><img src="{{game.image.url}}" alt="game_image"></a>
+        <h4 class="text-white fw-bold">{{game.name}}<br><span>{{game.company}}</span></h4>
+        <ul>
+            <li><i class="fa fa-star text-warning me-1"></i> {{game.rate}}</li>
+            <li><i class="fa fa-download text-info me-1"></i> {{game.downloads}}</li>
+        </ul>
+        <div class="game-categories">
+            {% for category in game.categories.all %}
+            <a class="badge bg-success" href="{% url 'store_page' %}?genre={{category.name }}">{{category.name }}</a>
+            {% endfor %}
+        </div>
+        <div class="game-edit">
+            {% if user.id and user.is_superuser %}
+            <a href="{% url 'edit_game' pk=game.id %}">&#9998; Edit</a>
+            <a href="{% url 'delete_game' game_id=game.id %}">&#128369; Remove</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
