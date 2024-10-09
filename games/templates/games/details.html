@@ -39,6 +39,17 @@
                 {% endfor %}
             </div>
 
+            {% if user.id and user.is_superuser %}
+            <!-- ADMIN OPTIONS -->
+            <div class="mb-3">
+                <h5>Options:</h5>
+                <div class="game-edit">
+                    <a href="{% url 'edit_game' pk=game.id %}" class="d-block text-decoration-none"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                    <a href="{% url 'delete_game' game_id=game.id %}" class="d-block text-decoration-none"><i class="fa-solid fa-trash"></i> Remove</a>
+                </div>
+            </div>
+            {% endif %}
+
             <!-- Play or Buy Button -->
             <div class="my-3">
                 {% if user.id and not user.is_superuser and not game.price %}
