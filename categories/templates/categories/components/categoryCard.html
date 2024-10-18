@@ -1,12 +1,18 @@
-<div class="category-card">
-    <a href="{% url 'store_page' %}?genre={{category.name }}">
+<div class="category-card bg-native">
+    <a href="{% url 'store_page' %}?genre={{category.name }}" class="text-decoration-none">
         <img src="{{category.image.url}}" alt="{{category.name}}">
     </a>
     <div class="category-content">
         <span class="fw-bold">{{category.name}}</span>
         {% if user.id and user.is_superuser %}
-            <a href="{% url 'edit_category' pk=category.id %}">&#9998; Edit</a>
-            <a href="{% url 'delete_category' category_id=category.id %}">&#128369; Remove</a>
+        <div class="mt-2">
+            <a href="{% url 'edit_category' pk=category.id %}" class="text-decoration-none me-2">
+                <i class="fa-solid fa-pen-to-square me-1"></i> Edit
+            </a>
+            <a href="{% url 'delete_category' category_id=category.id %}" class="text-decoration-none ">
+                <i class="fa-solid fa-square-minus me-1"></i> Remove
+            </a>
+        </div>
         {% endif %}
     </div>
 </div>

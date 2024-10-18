@@ -24,3 +24,6 @@ footer .website-logo {
   width: 5rem;
   height: 5rem;
 }
+footer a:hover {
+  opacity: 80% !important;
+}

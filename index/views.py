@@ -4,5 +4,5 @@ from games.models import Game
 
 # Create your views here.
 def index(request):
-    games = Game.objects.all()
-    return render(request, "index/index.html", context={"games": games})
+    recent_games = Game.objects.all()[::-1][:3]
+    return render(request, "index/index.html", context={"games": recent_games})

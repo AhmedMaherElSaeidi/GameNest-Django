@@ -13,7 +13,7 @@
   justify-content: center;
 }
 .store-page .game-cards > .game-card {
-  width: 20rem;
+  width: 18rem;
   margin: 0.5rem;
 }
 .store-page .game-cards > .game-card:hover {
@@ -22,20 +22,24 @@
 }
 .store-page .game-cards > .game-card img {
   display: block;
-  width: 18rem;
+  width: 100%;
   height: 20rem;
+  object-fit: fill;
 }
 .store-page .game-cards > .game-card img:hover,
 .store-page .game-cards > .game-card .game-categories a:hover {
   cursor: pointer;
 }
 .store-page .item {
-  padding: 15px;
-  border-radius: 0.5rem;
+  border-radius: 0.35rem;
+    overflow: hidden;
+}
+.store-page .item .item-body {
+  padding: 1rem;
+  padding-inline: 0.5rem;
 }
 .store-page .item h4 {
   font-size: 15px;
-  margin-top: 20px;
   margin-bottom: 0px;
   display: inline-block;
 }
@@ -48,7 +52,6 @@
 .store-page .item ul {
   list-style: none;
   float: right;
-  margin-top: 20px;
 }
 .store-page .item ul li {
   text-align: right;

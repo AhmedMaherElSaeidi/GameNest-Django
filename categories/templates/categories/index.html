@@ -8,17 +8,32 @@
 
 {% block content%}
 <div class="categories-page">
-    <div class="d-flex justify-content-around align-items-center">
+    <div class="d-flex justify-content-around align-items-center color-native">
         <h1>Categories Page</h1>
+    </div>
+    <div class="mt-2 mb-3">
         {% if user.id and user.is_superuser %}
-        <a href="{% url 'add_category' %}" class="p-3 btn btn-outline-secondary rounded-pill">Add New Category</a>
+        <a href="{% url 'add_category' %}" class="text-decoration-none">
+            
+            <i class="fa-solid fa-circle-plus me-1"></i> New Category
+        </a>
         {% endif %}
     </div>
+
+    {% if categories.length != 0 %}
     <div class="categories-cards">
         {% for category in categories.all %}
         {% include 'categories/components/categoryCard.html' with category=category %}
         {% endfor %}
     </div>
+    {% endif %}
+
+    {% if categories.length == 0 %}
+    <div class="alert alert-primary my-3 text-center">
+      No categories available currently
+    </div>
+    {% endif %}
+
     {% if delete == "success" %}
         <div class="alert alert-success alert-dismissible fade show position-fixed w-50 text-center" style="top: 85px; right: 340px" role="alert">
         Category Deleted successfully!
