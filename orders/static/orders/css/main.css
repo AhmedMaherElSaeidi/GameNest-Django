@@ -1,14 +1,18 @@
-.admin-order-page .card .order-form {
-  margin-top: 1rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid black;
+.admin-order-page .card .order-form form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .admin-order-page .card .order-form form > div {
-  margin-bottom: 0.75rem;
+  margin-right: 0.5rem;
+  display: inline;
+}
+.admin-order-page .card .order-form form label {
+  display: none;
 }
 .admin-order-page .card .order-form form select {
+  border: 0.5px solid grey;
   padding-inline: 1rem;
-}
-.admin-order-page .card .order-form .btn {
-  padding: 0.2rem;
+  height: 2.25rem;
+  border-radius: 0.25rem;
 }

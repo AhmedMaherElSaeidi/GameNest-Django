@@ -63,15 +63,22 @@
 }
 
 .profile-page .requested_orders > .order-card {
-  margin: 0.5rem;
+  width: 24rem;
+  height: 15rem;
   display: flex;
-  padding: 0.5rem;
-  width: fit-content;
+  padding: 0rem;
+  margin: 0.5rem;
+  overflow: hidden;
   border-radius: 0.25rem;
-  border: 1px solid #080e3f;
+  background-color: #29324124;
 }
 .profile-page .requested_orders > .order-card img {
-  width: 10rem;
-  height: 10rem;
-  margin-right: 1rem;
+  width: 12rem;
+  height: 100%;
+}
+.profile-page .requested_orders > .order-card .card-body {
+  display: flex;
+  flex-direction: column;
+  padding-block: 0.5rem;
+  margin-inline: 0.5rem;
 }

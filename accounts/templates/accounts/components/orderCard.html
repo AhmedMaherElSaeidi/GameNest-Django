@@ -3,11 +3,17 @@
     <div class="card-body">
         <h5 class="card-title mb-2">{{ order.games.name }}</h5>
         <p class="card-text mb-1">{{ order.games.company }}</p>
-        <p class="card-text mb-1"><i class="fa fa-star text-warning"></i> {{ order.games.rate }}</p>
+        <p class="card-text mb-1"><span><i class="fa fa-star text-warning"></i> {{ order.games.rate }}</span></p>
         <p class="card-text mb-1"><span class="badge bg-secondary">{{ order.status }}</span></p>
+        <a href="#" class="text-decoration-none ">
+            <i class="fa-solid fa-square-minus me-1"></i> Remove
+        </a>
+
         {% if order.status == 'Delivered' or not order.games.price %}
-        <p class="card-text mb-1">
-            <a href="{{ order.games.url }}" class="btn btn-primary p-1 w-100">Play</a>
+        <p class="card-text mt-auto">
+            <a href="{{ order.games.url }}" class="btn btn-primary p-1 w-100">
+                <i class="fa-solid fa-gamepad me-1"></i> Play
+            </a>
         </p>
         {% endif %}
     </div>

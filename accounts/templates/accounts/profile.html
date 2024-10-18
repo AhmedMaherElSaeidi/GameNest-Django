@@ -10,7 +10,7 @@
 
 {% block content %}
 <div class="profile-page">
-    <div class="profile-container mb-5">
+    <div class="profile-container">
         {% if user.image %}
         <img src="{{user.image.url}}" alt="Profile Picture">
         {% else %}
@@ -23,11 +23,22 @@
         <p class="mb-0">{{ user.phone }}</p>
         <p class="mb-3">{{ user.email }}</p>
         <p class="text-primary"><span class="fw-bold">Joined,</span> {{ user.join_date }}</p>
-
+        <hr/>
+        
+        {% if user.id %}
+        <div class="my-2">
+            <a href="#" class="text-decoration-none me-2">
+                <i class="fa-solid fa-pen-to-square me-1"></i> Edit
+            </a>
+            <a href="#" class="text-decoration-none ">
+                <i class="fa-solid fa-square-minus me-1"></i> Remove
+            </a>
+        </div>
+        {% endif %}
     </div>
 
     {% if user.id and not user.is_superuser %}
-    <div>
+    <div class="my-3">
         <h3 class="color-native text-center mb-3">Orders</h3>
         <div class="row requested_orders">
             {% for order in orders.all %}

@@ -9,22 +9,28 @@
 {% block content%}
 <div class="admin-order-page">
     <div class="container mt-5">
-        <h2 class="mb-4">Order List</h2>
+        <h2 class="mb-4 color-native">Order List</h2>
         <div class="row">
             {% for order in orders %}
-            <div class="col-md-4 mb-4">
+            <div class="col-md-6 mb-4">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">{{ order.games.name }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Ordered by: {{ order.users.username }}</h6>
-                        <p class="card-text mb-1">Status: {{ order.status }}</p>
-                        <a href="{% url 'resolve_orders' %}" class="card-link">View Game Details</a>
-                        <div class="order-form">
+                        <h6 class="card-subtitle mb-0 text-muted">Requeted by {{ order.users.username }}</h6>
+                        <p class="card-text mb-2 text-muted">Status {{ order.status | lower }}</p>
+                        <a href="{% url 'details_page' order.games.id %}" class="card-link">
+                            <i class="fa-solid fa-info me-1"></i> Game Details
+                        </a>
+                        
+                        <div class="order-form mt-2">
+                            <hr />
                             <form action="" method="post">
                                 {% csrf_token %}
                                 {{form}}
                                 <input type="hidden" name="id" value="{{ order.id }}">
-                                <button type="submit" class="btn btn-success">Proceed</button>
+                                <button type="submit" class="btn btn-success d-inline px-1">
+                                    <i class="fa-solid fa-circle-check me-1"></i> Proceed
+                                </button>
                             </form>
                         </div>
                     </div>
