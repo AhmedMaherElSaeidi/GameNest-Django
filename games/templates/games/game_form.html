@@ -1,6 +1,6 @@
 {% extends 'base.html' %} 
 
-{% block title %} Create New Game {% endblock %} 
+{% block title %} {% if game.id %} Edit {% else %} Create {% endif %} Game {% endblock %} 
 
 {%load static %}
 {% block headers%}
