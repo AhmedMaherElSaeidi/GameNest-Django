@@ -1,6 +1,6 @@
 # GameNest
 
-**GameNest** is a gaming hub platform developed as a graduation project during a one-month IT internship. It allows users to explore a variety of games, add them to their cart, manage orders, and complete purchases. Admins can manage game listings, categories, and user orders.
+**GameNest** is a gaming hub platform developed as a graduation project during a one-month IT internship. It allows users to explore a variety of games, add them to their cart, and manage orders. Admins can manage game listings, categories, and user orders.
 
 ## Features
 
