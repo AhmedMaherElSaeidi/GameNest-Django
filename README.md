@@ -6,7 +6,6 @@
 
 ### User Features
 - **Browse Games**: View available games organized by categories.
-- **Cart Management**: Add games to your cart and manage them before purchase.
 - **Order Management**: View all ordered games in a personal order history.
 
 ### Admin Features
