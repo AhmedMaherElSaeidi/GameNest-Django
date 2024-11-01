@@ -32,7 +32,7 @@
 }
 .store-page .item {
   border-radius: 0.35rem;
-    overflow: hidden;
+  overflow: hidden;
 }
 .store-page .item .item-body {
   padding: 1rem;
@@ -61,6 +61,31 @@
 .store-page .main-button {
   text-align: center;
   margin-bottom: -53px;
+}
+
+/* FORM HTML */
+.game-form > form {
+  margin: auto;
+  padding: 1rem;
+  width: fit-content;
+  border-radius: 0.25rem;
+}
+.game-form > form > div {
+  margin-bottom: 0.25rem;
+}
+.game-form div > label,
+.game-form div {
+  color: white !important;
+  display: block;
+}
+.game-form div > label {
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+}
+.game-form div > input {
+  width: 100%;
+  padding: 0.25rem;
+  display: block;
 }
 
 /* DETAILS PAGE */

@@ -1,32 +1,26 @@
-{% extends 'base.html' %}
-{% block title %} Create New Game {% endblock title %}
+{% extends 'base.html' %} 
 
-{% load static %}
+{% block title %} Create New Game {% endblock %} 
+
+{%load static %}
 {% block headers%}
-<link rel="stylesheet" href="{% static 'games/css/main.css'%}">
-{% endblock headers%}
+<link rel="stylesheet" href="{% static 'games/css/main.css'%}" />
+{% endblock%}
 
 {% block content %}
-
-<h1 class="text-center">
-    {% if game.id %}
-    Edit 
-    {% else %}
-    Create a new 
-    {% endif %}
-    Game
-</h1>
-<form class="form-container" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form}}
-    <button class="btn btn-secondary my-5 w-50" type="submit">
-        {% if category.id %}
-        Edit 
-        {% else %}
-        Create
-        {% endif %}
-         Game
+<div class="game-form">
+  <h1 class="text-center color-native fw-bold">
+    {% if game.id %} Edit {% else %} Create {% endif %} Game
+  </h1>
+  <form
+    class="form-container bg-native"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %} {{form}}
+    <button class="btn btn-secondary my-2 w-100" type="submit">
+      {% if category.id %} Edit {% else %} Create {% endif %} Game
     </button>
-</form>
-
-{% endblock content %}
+  </form>
+</div>
+{% endblock %}
