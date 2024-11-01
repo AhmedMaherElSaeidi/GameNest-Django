@@ -34,38 +34,28 @@
   transform: translateY(-5px);
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
-form > div {
-  width: 50%;
+/* FORM HTML */
+.category-form > form {
+  margin: auto;
+  padding: 1rem;
+  width: fit-content;
+  border-radius: 0.25rem;
 }
-
-form > div > label {
+.category-form > form > div {
+  margin-bottom: 0.25rem;
+}
+.category-form div > label,
+.category-form div {
+  color: white !important;
   display: block;
-  margin-block: 8px;
+}
+.category-form div > label {
   font-weight: bold;
+  letter-spacing: 0.05rem;
 }
-
-form > div > * {
+.category-form div > input {
   width: 100%;
-  border-radius: 5px;
-  padding: 4px;
-}
-
-form > div > *:not(label) {
-  border: 1px solid gray;
-}
-
-form .helptext {
-  display: none;
-}
-
-form .errorlist {
-  background-color: rgba(255, 0, 0, 0.18);
-  list-style: none;
+  padding: 0.25rem;
+  display: block;
 }
